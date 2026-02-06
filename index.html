@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Aleron Technology builds industrial-first wireless terminals for reliable, deterministic connectivity in AI-enabled industrial environments." />
+  <title>Aleron Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f1c;
+      --bg-2: #0f1628;
+      --ink: #e9f1ff;
+      --muted: rgba(233,241,255,.72);
+      --line: rgba(255,255,255,.10);
+      --accent: #4cc3ff;
+      --accent-2: #63e4c6;
+      --warm: #f6c36a;
+      --card: rgba(255,255,255,.04);
+      --shadow: 0 30px 80px rgba(6,12,26,.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mesh {
+      position: absolute;
+      inset: -20% -10% auto -10%;
+      height: 780px;
+      background:
+        radial-gradient(45% 45% at 20% 20%, rgba(76,195,255,.45), transparent 65%),
+        radial-gradient(45% 45% at 70% 10%, rgba(99,228,198,.30), transparent 65%),
+        radial-gradient(50% 50% at 80% 60%, rgba(246,195,106,.28), transparent 70%),
+        radial-gradient(40% 40% at 30% 70%, rgba(85,132,255,.25), transparent 60%);
+      filter: blur(8px);
+      opacity: .9;
+      animation: drift 18s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      from { transform: translateY(-20px) scale(1); }
+      to { transform: translateY(20px) scale(1.04); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 22px 80px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0 26px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .brand img {
+      height: 72px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: inline-flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a { color: inherit; text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(76,195,255,.28), rgba(99,228,198,.22));
+      color: var(--ink);
+      border: 1px solid rgba(255,255,255,.16);
+      text-decoration: none;
+      font-size: 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
+      align-items: center;
+      padding: 40px 0 30px;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      letter-spacing: -.01em;
+    }
+
+    .lead { font-size: 18px; color: var(--muted); margin: 0 0 22px; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 500;
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, #2b97ff, #63e4c6);
+      color: #041321;
+      border: none;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(10,16,28,.75);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .stat b { color: var(--ink); font-weight: 600; }
+
+    .section {
+      margin-top: 48px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .section h2 {
+      font-family: "Space Grotesk", sans-serif;
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .tile {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(9,14,26,.7);
+    }
+
+    .tile h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .tile p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .band {
+      margin-top: 40px;
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(76,195,255,.12), rgba(99,228,198,.10));
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    footer {
+      margin-top: 42px;
+      color: rgba(233,241,255,.6);
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: rise .8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .2s; }
+    .delay-3 { animation-delay: .3s; }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="mesh" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#">
+          <img src="assets/aleron-logo.png" alt="Aleron Technology" />
+          Aleron Technology
+        </a>
+        <div class="nav-links">
+          <a href="#platform">Platform</a>
+          <a href="#applications">Applications</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+        <a class="cta" href="mailto:info@alerontechnology.com">Start a conversation</a>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <h1 class="fade-in">Deterministic industrial UE for private 5G/6G.</h1>
+          <p class="lead fade-in delay-1">
+            We build next-generation UE chips, modules, and systems for private cellular networks in AI-enabled industrial
+            environments—where timing, reliability, and resilience cannot fail.
+          </p>
+          <div class="hero-actions fade-in delay-2">
+            <a class="button primary" href="mailto:info@alerontechnology.com">Request a briefing</a>
+            <a class="button" href="#platform">Explore the platform</a>
+          </div>
+        </div>
+
+        <div class="hero-card fade-in delay-3">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 10px;">Deterministic performance stack</div>
+          <div class="stats">
+            <div class="stat"><span>Latency discipline</span><b>&lt;2 ms jitter targets</b></div>
+            <div class="stat"><span>Availability strategy</span><b>Redundant RF + timing</b></div>
+            <div class="stat"><span>Industrial hardening</span><b>Vibration + EMI ready</b></div>
+            <div class="stat"><span>Deployment velocity</span><b>Module to system readiness</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="platform" class="section">
+        <h2>Platform pillars</h2>
+        <p class="lead" style="margin:0; font-size:16px;">A unified system + silicon approach designed for the realities of industrial networks.</p>
+        <div class="grid">
+          <div class="tile">
+            <h3>Time-aware UE stack</h3>
+            <p>Deterministic scheduling, tight timing, and resilient synchronization for control-grade performance.</p>
+          </div>
+          <div class="tile">
+            <h3>Industrial RF front-end</h3>
+            <p>High dynamic range with co-designed filters and RF chains for noisy factory floors.</p>
+          </div>
+          <div class="tile">
+            <h3>Edge orchestration</h3>
+            <p>Fleet management, provisioning, and diagnostics aligned with private 5G/6G deployments.</p>
+          </div>
+          <div class="tile">
+            <h3>Hardware-secure modules</h3>
+            <p>Secure boot, identity, and update pipelines for infrastructure-grade lifecycle control.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="applications" class="section">
+        <h2>Where it fits</h2>
+        <div class="grid">
+          <div class="tile">
+            <h3>Factory automation</h3>
+            <p>Deterministic wireless links for PLC loops, robotics, and time-sensitive operations.</p>
+          </div>
+          <div class="tile">
+            <h3>Autonomous logistics</h3>
+            <p>Reliable control and telemetry for AGVs, drones, and remote handling systems.</p>
+          </div>
+          <div class="tile">
+            <h3>Energy & utilities</h3>
+            <p>Low-latency monitoring for substations, distributed assets, and predictive maintenance.</p>
+          </div>
+          <div class="tile">
+            <h3>Smart infrastructure</h3>
+            <p>High-availability connectivity for transit, ports, and mission-critical campuses.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <h2>Execution roadmap</h2>
+        <div class="grid">
+          <div class="tile">
+            <h3>Phase 01</h3>
+            <p>Industrial UE module validation with partner-led pilots and live network trials.</p>
+          </div>
+          <div class="tile">
+            <h3>Phase 02</h3>
+            <p>Custom silicon programs for latency-critical deployments and ruggedized hardware.</p>
+          </div>
+          <div class="tile">
+            <h3>Phase 03</h3>
+            <p>Scaled manufacturing and network-level orchestration for global rollout.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="section">
+        <h2>Seasoned team</h2>
+        <p class="lead" style="margin:0; font-size:16px;">
+          A veteran leadership and engineering team with deep roots in global wireless and semiconductor innovation—from
+          pioneering IoT Wi‑Fi platforms and NB‑IoT + GNSS system‑on‑chips to leading LTE and 5G NR silicon programs.
+          Experience spans top-tier industry labs, public-company executives, and venture-backed scale, with a track record
+          of shipping commercial 3G/4G/5G terminals and system-level IP at scale.
+        </p>
+        <div class="tile" style="margin-top:16px;">
+          <h3>San Diego advantage</h3>
+          <p>Based in San Diego, a rare full-cycle 3G → 4G → 5G terminal talent hub.</p>
+        </div>
+      </section>
+
+      <div class="band">
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 4px;">Build with us</div>
+          <div style="color: var(--muted);">Based in San Diego, CA. Available for strategic pilots and design partnerships.</div>
+        </div>
+        <a class="button primary" href="mailto:info@alerontechnology.com">Contact info@alerontechnology.com</a>
+      </div>
+
+      <footer>
+        <div>© <span id="y"></span> Aleron Technology. All rights reserved.</div>
+        <div>Private cellular • Industrial AI • Deterministic wireless</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
